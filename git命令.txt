@@ -1,0 +1,51 @@
+官网: https://www.git-scm.com/download/win
+本地仓库工作区域
+  工作区Working Directory-->暂存区-->Git Resository(本地Git仓库)
+初始化本地git仓库
+1、新建仓库文件夹test
+2、cd test
+    git init
+3、新建文件
+4、提交到暂存区与本地仓库
+1)git status
+   查看当前文件状态
+2)git add hello.java 
+   将文件从工作区添加到暂存区
+3)git commit -m "提交描述"
+
+提交github远程仓库
+1、基本信息设置
+1)设置用户名
+git config --global user.name 'dddxxw'
+2)设置用户名邮箱
+git config --global user.email 'dxw2750@163.com'
+
+2、从远程仓库克隆项目
+   git clone 远程仓库地址
+   修改后再提交到本地仓库,再提交到远程仓库
+   git push
+   如果远程仓库文件发生了更新,可以更新到本地
+   git pull
+
+3、删除
+ 1)删除文件
+   rm -rf Hello.java
+ 2)从本地Git中删除文件
+   git rm Hello.java
+ 3)提交操作到本地仓库
+   git commit -m '提交描述'
+ 4)提交操作到远程仓库
+   git push
+
+问题:如果无法同步或权限被拒绝,打开.git下的config文件
+将
+[remote "origin"]
+	url = https://github.com/dddxxw/dxw_test.git
+改为:
+[remote "origin"]
+	url = https://用户名:密码@github.com/用户名/仓库名.git
+
+5、idea使用git如果出现权限被拒绝
+  在项目根路径下执行如下命令
+  git pull origin master –allow-unrelated-histories
+  git push -u origin master -f
